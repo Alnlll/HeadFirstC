@@ -1,0 +1,7 @@
+Summary:
+1.Function name is a function pointer(But the name is L-value, none mem for it).
+2.Function Pointer Prototype
+	(return type) (* variable)(parameters' type ...)
+3.Function pointer reference
+	1)  fp is ok
+	2)	(*fp) is ok
