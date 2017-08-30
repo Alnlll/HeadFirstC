@@ -1,0 +1,8 @@
+Summary:
+1.Varialble parameter usage
+	1)(return type)func(int args, ...)
+	2)
+		va_list ap;
+		va_start(ap, args);
+		va_arg(ap, para type);
+		va_end(ap);
