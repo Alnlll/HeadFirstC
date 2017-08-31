@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include "../include/encrypt.h"
-#include "../include/checksum.h"
+#include <encrypt.h>
+#include <checksum.h>
 
 int main(void)
 {
