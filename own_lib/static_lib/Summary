@@ -1,0 +1,15 @@
+Summary:
+1.
+	1)Include .h file with <>, compiler will find the files in system lib dir(such as: /usr/local/include or /usr/include).
+	2)Include .h file with "", compiler will find the files in current dir.
+	3)Gcc's option "-I" can specify the include dir.
+2. 
+	1)Multiple "*.o" can be putted into a *.a file which is called static lib file.
+	2)File command: ar -rcs lib[libname] a.o b.o ... .
+	3)Gcc's -l[libname] option can use the libs.
+	3)Gcc's option "-L" can specifu the lib dir.
+3.Example
+	1)ar -rcs libhfsecurity encrypt.o checksum.o
+	2)gcc -L/my_lib/ -lhfsecurity main.o -o main
+4.Notice
+	Static lib cannot be changed any more if generated.
