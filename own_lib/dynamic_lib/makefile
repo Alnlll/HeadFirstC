@@ -5,20 +5,23 @@ INC_PATH = ${CUR_PATH}include/
 OUTPUT_PATH = ${CUR_PATH}output/
 LIB_PATH = /my_lib/
 
-main: main.o libhfcal.so
-	gcc ${OUTPUT_PATH}main.o -L${LIB_PATH} -lhfcal -o main
+CGLAGS = -I${INC_PATH}
+CC = gcc
 
-libhfcal.so: calories.o
-	gcc -shared ${OUTPUT_PATH}calories.o -o ${LIB_PATH}libhfcal.so
+main: main.o libhfcal.so
+	${CC} ${OUTPUT_PATH}main.o -L${LIB_PATH} -lhfcal -o main
+
+libhfcal.so: calories_UK.o
+	${CC} -shared ${OUTPUT_PATH}calories_UK.o -o ${LIB_PATH}libhfcal.so
 
 main.o: ${SRC_PATH}main.c
-	gcc -I${INC_PATH} -c ${SRC_PATH}main.c
+	${CC} ${CGLAGS} -c ${SRC_PATH}main.c
 	mv *.o ${OUTPUT_PATH}
-calories.o: ${SRC_PATH}calories.c ${INC_PATH}calories.h
-	gcc -I${INC_PATH} -fPIC -c ${SRC_PATH}calories.c
+calories_UK.o: ${SRC_PATH}calories_UK.c ${INC_PATH}calories_UK.h
+	${CC} ${CGLAGS} -fPIC -c ${SRC_PATH}calories_UK.c
 	mv *.o ${OUTPUT_PATH}
 
 .PHONY: clean
 clean:
 	cd ${OUTPUT_PATH} && rm -r *.o || cd -
-	-rm -r main
+	#-rm -r main
