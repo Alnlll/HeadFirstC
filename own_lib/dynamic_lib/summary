@@ -1,0 +1,7 @@
+Summary:
+1.Lcation_independent code
+	gcc -fPIC
+2.Dynamic generation
+	gcc -shared ... [name.so]
+3.Linux Usage
+	LD_LIBRARY_PATH should be used if we haven't put lib into standard path.
